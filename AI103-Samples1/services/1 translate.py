@@ -3,6 +3,16 @@
 # TRANSLATE TEXT
 # Translates text into one or more target languages and returns the detected source language.
 
+
+from azure.ai.translation.text import TextTranslationClient
+from azure.core.credentials import AzureKeyCredential
+
+client = TextTranslationClient(
+    endpoint=endpoint,
+    credential=AzureKeyCredential(key),
+    region=region
+)
+
 # Text to translate
 input_text_elements = [
     InputTextItem(text="Hola"),

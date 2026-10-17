@@ -4,8 +4,12 @@
 
 from http import client
 
-from azure.ai.contentunderstanding import (
-    ContentUnderstandingClient
+from azure.identity import DefaultAzureCredential
+from azure.ai.contentunderstanding import ContentUnderstandingClient
+
+client = ContentUnderstandingClient(
+    endpoint=endpoint,
+    credential=DefaultAzureCredential()
 )
 
 # DEFINE THE ANALYZER

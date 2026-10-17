@@ -12,7 +12,7 @@ img_results = client.images.generate(
 model="FLUX.1-Kontext-pro",
     prompt="A robot eating a cheeseburger.",
     n=1,
-    size="1024x1024",   
+    size="1024x720",   
 )
 
 # SAVE THE GENERATED IMAGE

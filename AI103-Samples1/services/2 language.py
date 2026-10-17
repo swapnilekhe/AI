@@ -46,7 +46,10 @@ documents = [
     "Microsoft was founded on April 4, 1975 by Bill Gates and Paul Allen in Albuquerque, New Mexico.",
     "Satya Nadella became CEO of Microsoft on February 4, 2014."
 ]
-
+client = TextAnalyticsClient(
+    endpoint=endpoint,
+    credential=AzureKeyCredential(key)
+)
 # Extract named entities
 response = client.recognize_entities(
     documents=documents
@@ -88,6 +91,10 @@ documents = [
     "Patient Sarah Johnson, SSN 123-45-6789, was admitted on 03/15/2024."
 ]
 
+client = TextAnalyticsClient(
+    endpoint=endpoint,
+    credential=AzureKeyCredential(key)
+)
 # Detect PII entities
 response = client.recognize_pii_entities(
     documents=documents,
