@@ -197,6 +197,23 @@ f"{translations[translation_language]}'"
 # AZURE AI SPEECH - TRANSLATE SPEECH TO SPEECH
 # Translates spoken language into one or more target languages and speaks the translated results aloud.
 
+
+import os
+import azure.cognitiveservices.speech as speechsdk
+
+# 1. Azure Speech configuration
+speech_key = os.environ["SPEECH_KEY"]
+speech_region = os.environ["SPEECH_REGION"]
+
+# 2. Configure source and target languages
+source_language = "en-US"
+target_languages = ["fr", "hi"]
+
+# 3. Configure the Speech Translation service
+translation_cfg = speechsdk.translation.SpeechTranslationConfig(
+    subscription=speech_key,
+    region=speech_region
+)
 # Configure source and target languages
 translation_cfg.speech_recognition_language = "en-US"
 

@@ -1,4 +1,12 @@
 
+# Method	Purpose	Example output
+# analyze_sentiment()	Detects positive, neutral, or negative sentiment	positive
+# recognize_entities()	Identifies people, organizations, locations, and other entities	Microsoft — Organization
+# recognize_pii_entities()	Detects personally identifiable information	john@example.com — Email
+# extract_key_phrases()	Extracts important phrases from text	new laptop
+# detect_language()	Identifies the language of text	English — en
+
+
 # SLIDE 67
 # AZURE AI LANGUAGE - LANGUAGE DETECTION
 # Detects the language of one or more text documents and returns the language, ISO code, and confidence score.
