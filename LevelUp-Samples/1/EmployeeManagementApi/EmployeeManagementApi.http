@@ -1,0 +1,24 @@
+@EmployeeManagementApi_HostAddress = http://localhost:5080
+
+GET {{EmployeeManagementApi_HostAddress}}/api/employees
+Accept: application/json
+
+###
+
+POST {{EmployeeManagementApi_HostAddress}}/api/employees
+Content-Type: application/json
+
+{
+	"firstName": "Jordan",
+	"lastName": "Lee",
+	"email": "jordan.lee@example.com",
+	"department": "Engineering",
+	"jobTitle": "Software Engineer",
+	"dateOfJoining": "2025-01-15T00:00:00Z",
+	"salary": 85000
+}
+
+###
+
+GET {{EmployeeManagementApi_HostAddress}}/api/employees/1
+Accept: application/json

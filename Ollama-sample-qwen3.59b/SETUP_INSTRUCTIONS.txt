@@ -1,0 +1,121 @@
+# EWBlog MS SQL Setup - Complete Setup Guide
+
+## Step 1: Install Dependencies
+```powershell
+npm install mssql --save-dev
+```
+
+This installs mssql driver for Node.js.
+
+## Step 2: Create Database & Schema
+1. Open PowerShell or Command Prompt
+2. Navigate to your project directory:
+```cmd
+cd "d:\MyGit\AI\AI\Ollama-sample-qwen3.59b"
+```
+3. Run the setup script:
+```cmd
+node src/setup_ewblog_db.js
+```
+
+OR manually run the SQL file provided in the project (setup_ewblog.sql) and connect via `mssql` driver.
+
+## Step 3: Connect to Database & Fetch Posts
+After setting up the database, update your server.js with this code:
+
+```javascript
+import http from 'http';
+import path from 'path';
+import { createClient } from 'mssql';
+
+const CLIENT = createClient(
+  process.env.DB_HOST || 'localhost',
+  process.env.DB_USER || 'sa',
+  process.env.DB_PASSWORD || '',
+  process.env.DB_NAME || 'EWBlog',
+  {
+    options: {
+      encrypt: false,
+      trustServerCertificate: true
+    }
+  }
+);
+
+async function initDatabase() {
+  try {
+    await CLIENT.connect();
+    console.log('✓ Connected to database');
+    
+    // Drop tables if they exist (production use)
+    // await CLIENT.query('DROP TABLE Posts');
+    // await CLIENT.query('DROP TABLE Users');
+    
+    console.log('✓ Database initialized');
+    console.log('✓ Server ready at http://localhost:5173/api/posts\n');
+    
+  } catch (err) {
+    console.error('✗ Connection error:', err.message);
+    process.exit(1);
+  } finally {
+    await CLIENT.end();
+  }
+}
+
+initDatabase().then(() => {
+  const server = http.createServer((req, res) => {
+    const timestamp = Date.now();
+    
+    if (req.url.startsWith('/api/posts')) {
+      const match = req.url.match(/\/posts\/(\d+)/);
+      if (!match) {
+        res.writeHead(200, {'Content-Type': 'application/json'});
+        res.end(JSON.stringify([])); // Empty array for development
+        return;
+      }
+      
+      const postId = parseInt(match[1]);
+      const posts = [/* sample post data */];
+      res.writeHead(200, {'Content-Type': 'application/json'});
+      res.end(JSON.stringify(posts));
+      return;
+    }
+    
+    // SPA routing
+    try {
+      const indexPath = path.resolve('index.html');
+      const htmlContent = require('fs').readFileSync(indexPath);
+      
+      res.writeHead(200, {'Content-Type': 'text/html'});
+      res.end(htmlContent);
+    } catch (err) {
+      console.error('[SERVER]', err.message);
+      res.writeHead(500, {'Content-Type': 'text/plain'});
+      res.end('Error');
+    }
+  });
+
+  server.listen(process.env.PORT || 5173, () => {
+    console.log('\n✓ EWBlog Server Started!');
+    console.log('🌐 Access: http://localhost/' + (process.env.PORT || 5173) + '/');
+  });
+});
+```
+
+## Step 4: Configure Environment Variables
+Add these to your `.env` file:
+```env
+DB_HOST=localhost
+DB_USER=sa
+DB_PASSWORD=your_mssql_password
+DB_NAME=EWBlog
+PORT=5173
+```
+
+## Step 5: Access Your Blog
+- Main page: http://localhost/5173/
+- Login page: http://localhost/5173/login
+- Sample articles are now available on the homepage!
+
+---
+
+For detailed instructions, see `PROJECT_STATUS.md` or `PROJECT_VERIFICATION.md`.

@@ -1,0 +1,264 @@
+import { useState, useEffect } from 'react'
+import { useParams, useNavigate } from 'react-router-dom'
+import BlogPostCard from '../components/BlogPostCard'
+import Navbar from '../components/Navbar'
+import { readBlogPosts, writeBlogPosts } from '../utils/excelService'
+
+const EditPost = () => {
+  const { id } = useParams()
+  const navigate = useNavigate()
+  const [loading, setLoading] = useState(false)
+  const [saving, setSaving] = useState(false)
+  const [formData, setFormData] = useState({
+    title: '',
+    content: '',
+    author: '',
+    timestamp: new Date().toISOString(),
+    status: 'published'
+  })
+  const [error, setError] = useState('')
+  const [success, setSuccess] = useState(false)
+
+  // Load existing post data on mount
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        const existingPosts = readBlogPosts()
+        const post = existingPosts.find(p => p.id === parseInt(id))
+
+        if (post) {
+          setFormData({
+            title: post.title || '',
+            content: post.content || '',
+            author: post.author || '',
+            timestamp: new Date(post.timestamp || Date.now()).toISOString(),
+            status: post.status || 'published'
+          })
+        } else {
+          setError('Post not found')
+        }
+      } catch (err) {
+        console.error('Error loading post:', err)
+        setError('Failed to load blog post data')
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    loadData()
+  }, [id])
+
+  const handleChange = (e) => {
+    const { name, value } = e.target
+    setFormData(prev => ({ ...prev, [name]: value }))
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    
+    if (!formData.title.trim()) {
+      setError('Title is required')
+      return
+    }
+
+    try {
+      setSaving(true)
+      setError('')
+
+      // Read existing posts
+      const existingPosts = readBlogPosts()
+      
+      // Find and update the post
+      const updatedPosts = existingPosts.map(post => 
+        post.id === parseInt(id) ? {
+          ...post,
+          title: formData.title,
+          content: formData.content,
+          author: formData.author,
+          timestamp: formData.timestamp,
+          status: formData.status || 'draft'
+        } : post
+      )
+
+      // Write updated posts to Excel
+      await writeBlogPosts(updatedPosts)
+
+      setSuccess(true)
+      
+      setTimeout(() => {
+        navigate('/posts')
+      }, 1500)
+    } catch (err) {
+      console.error('Error updating post:', err)
+      setError('Failed to update blog post. Please try again.')
+    } finally {
+      setSaving(false)
+    }
+  }
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600 mx-auto mb-4"></div>
+          <p className="text-gray-500">Loading post...</p>
+        </div>
+      </div>
+    )
+  }
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      <Navbar />
+
+      <main className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="bg-white rounded-xl shadow-md p-8">
+          {/* Header */}
+          <div className="mb-8 border-b border-gray-200 pb-6">
+            <h1 className="text-3xl font-bold text-gray-900 mb-2">Edit Blog Post</h1>
+            {formData.title && (
+              <p className="text-gray-500">{formData.title}</p>
+            )}
+          </div>
+
+          {/* Error message */}
+          {error && (
+            <div className="bg-red-50 border-l-4 border-red-400 p-4 mb-6 rounded-r-lg">
+              <p className="text-red-700">{error}</p>
+            </div>
+          )}
+
+          {/* Success message */}
+          {success && (
+            <div className="bg-green-50 border-l-4 border-green-400 p-4 mb-6 rounded-r-lg">
+              <p className="text-green-800">
+                Post updated successfully! Redirecting...
+              </p>
+            </div>
+          )}
+
+          {/* Form */}
+          <form onSubmit={handleSubmit} className="space-y-6">
+            {/* Title */}
+            <div>
+              <label htmlFor="title" className="block text-sm font-medium text-gray-700 mb-2">
+                Title *
+              </label>
+              <input
+                type="text"
+                id="title"
+                name="title"
+                value={formData.title}
+                onChange={handleChange}
+                placeholder="Enter post title..."
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors"
+                required
+              />
+            </div>
+
+            {/* Content */}
+            <div>
+              <label htmlFor="content" className="block text-sm font-medium text-gray-700 mb-2">
+                Content *
+              </label>
+              <textarea
+                id="content"
+                name="content"
+                value={formData.content}
+                onChange={handleChange}
+                placeholder="Write your blog post content here..."
+                rows={15}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors font-mono text-sm"
+                required
+              />
+            </div>
+
+            {/* Author */}
+            <div>
+              <label htmlFor="author" className="block text-sm font-medium text-gray-700 mb-2">
+                Author
+              </label>
+              <input
+                type="text"
+                id="author"
+                name="author"
+                value={formData.author}
+                onChange={handleChange}
+                placeholder="Enter author name..."
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors"
+              />
+            </div>
+
+            {/* Timestamp */}
+            <div>
+              <label htmlFor="timestamp" className="block text-sm font-medium text-gray-700 mb-2">
+                Publish Date
+              </label>
+              <input
+                type="datetime-local"
+                id="timestamp"
+                name="timestamp"
+                value={formData.timestamp.slice(0, 16)}
+                onChange={(e) => setFormData(prev => ({ ...prev, timestamp: e.target.value }))}
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors"
+              />
+            </div>
+
+            {/* Status */}
+            <div>
+              <label htmlFor="status" className="block text-sm font-medium text-gray-700 mb-2">
+                Status
+              </label>
+              <select
+                id="status"
+                name="status"
+                value={formData.status || 'published'}
+                onChange={(e) => setFormData(prev => ({ ...prev, status: e.target.value }))}
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors"
+              >
+                <option value="published">Published</option>
+                <option value="draft">Draft</option>
+                <option value="archived">Archived</option>
+              </select>
+            </div>
+
+            {/* Submit button */}
+            <div className="flex justify-between items-center pt-4 border-t border-gray-200">
+              <Link to="/posts" className="text-gray-600 hover:text-gray-800 font-medium text-sm">
+                Cancel Editing
+              </Link>
+
+              <button
+                type="submit"
+                disabled={saving}
+                className={`px-6 py-3 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-colors ${
+                  saving ? 'opacity-50 cursor-not-allowed' : ''
+                }`}
+              >
+                {saving ? (
+                  <span className="flex items-center">
+                    <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V8c-4.14 0-8 3.86-8 8z"></path>
+                    </svg>
+                    Saving...
+                  </span>
+                ) : (
+                  'Save Changes'
+                )}
+              </button>
+            </div>
+          </form>
+        </div>
+      </main>
+
+      <footer className="bg-gray-900 text-white py-8 mt-16">
+        <div className="max-w-7xl mx-auto px-4 text-center text-sm text-gray-400">
+          © 2024 React Blog
+        </div>
+      </footer>
+    </div>
+  )
+}
+
+export default EditPost
