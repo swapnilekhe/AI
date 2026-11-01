@@ -1,0 +1,26 @@
+{
+	"compilerOptions": {
+		"target": "es6",
+		"module": "esnext",
+		"moduleResolution": "node",
+		"jsx": "react",
+		"lib": ["dom", "dom.iterable", "es2015", "es2016", "es2017"],
+		"declaration": false,
+		"sourceMap": true,
+		"noEmitOnError": true,
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true,
+		"forceConsistentCasingInFileNames": true,
+		"strict": true,
+		"noImplicitAny": true,
+		"skipLibCheck": true
+	},
+	"files": ["./MultiSelectLookup/MultiSelectLookup.tsx"],
+	"include": ["./MultiSelectLookup/**/*.ts", "./MultiSelectLookup/**/*.tsx"],
+	"ts-node": {
+		"transpileOnly": true,
+		"compilerOptions": {
+			"module": "commonjs"
+		}
+	}
+}

@@ -1,0 +1,10 @@
+solution:
+  name: MultiSelectLookup
+  path: /
+  type: Unmanaged
+  version: 1.0.0.0
+  components:
+    - type: Control
+      name: MultiSelectLookup
+  templates:
+    - Control

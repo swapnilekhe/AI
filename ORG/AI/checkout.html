@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | Table &amp; Tide</title>
+    <link rel="stylesheet" href="checkout.css">
+</head>
+<body>
+    <main class="checkout-shell">
+        <header class="checkout-header">
+            <a class="brand" href="index.html">Table &amp; Tide</a>
+            <a class="return-link" href="food-gallery.html" data-i18n="backToMenu">&larr; Back to menu</a>
+            <label class="language-switcher"><span class="sr-only">Language</span><select data-language aria-label="Language"><option value="en">English</option><option value="mr">मराठी</option></select></label>
+        </header>
+
+        <div class="checkout-layout" id="checkoutLayout">
+            <section class="checkout-form-panel">
+                <p class="eyebrow" data-i18n="almostYours">Almost yours</p>
+                <h1>Finish your<br><em>order.</em></h1>
+                <form id="checkoutForm">
+                    <fieldset>
+                        <legend data-i18n="contact">Contact</legend>
+                        <label for="email" data-i18n="email">Email address</label>
+                        <input id="email" name="email" type="email" autocomplete="email" required placeholder="you@example.com">
+                    </fieldset>
+                    <fieldset>
+                        <legend data-i18n="delivery">Delivery</legend>
+                        <label for="name" data-i18n="fullName">Full name</label>
+                        <input id="name" name="name" autocomplete="name" required>
+                        <label for="address" data-i18n="streetAddress">Street address</label>
+                        <input id="address" name="address" autocomplete="street-address" required>
+                        <div class="field-row">
+                            <div><label for="city" data-i18n="city">City</label><input id="city" name="city" autocomplete="address-level2" required></div>
+                            <div><label for="postcode" data-i18n="postcode">Postcode</label><input id="postcode" name="postcode" autocomplete="postal-code" required></div>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend data-i18n="payment">Payment</legend>
+                        <label for="card" data-i18n="cardNumber">Card number</label>
+                        <input id="card" name="card" inputmode="numeric" autocomplete="cc-number" placeholder="4242 4242 4242 4242" minlength="12" required>
+                        <div class="field-row"><div><label for="expiry" data-i18n="expiry">Expiry</label><input id="expiry" name="expiry" placeholder="MM / YY" required></div><div><label for="cvc" data-i18n="cvc">CVC</label><input id="cvc" name="cvc" inputmode="numeric" autocomplete="cc-csc" minlength="3" required></div></div>
+                    </fieldset>
+                    <button class="place-order" type="submit" data-i18n="placeOrder">Place order <span aria-hidden="true">&rarr;</span></button>
+                    <p class="secure-note" data-i18n="demoCheckout">Demo checkout. No payment is processed.</p>
+                </form>
+            </section>
+            <aside class="order-summary">
+                <p class="eyebrow" data-i18n="yourOrder">Your order</p>
+                <div id="orderItems"></div>
+                <div class="summary-line"><span data-i18n="subtotal">Subtotal</span><strong id="subtotal">$0.00</strong></div>
+                <div class="summary-line"><span data-i18n="delivery">Delivery</span><strong data-i18n="free">Free</strong></div>
+                <div class="summary-total"><span data-i18n="totalLabel">Total</span><strong id="total">$0.00</strong></div>
+            </aside>
+        </div>
+        <section class="success-panel" id="successPanel" hidden>
+            <p class="eyebrow" data-i18n="orderConfirmed">Order confirmed</p>
+            <h1>Thank you for<br><em>joining the table.</em></h1>
+            <p data-i18n="orderOnWay">Your order is on its way. We have sent a confirmation to your email.</p>
+            <a class="place-order inline-link" href="food-gallery.html" data-i18n="returnMenu">Return to menu <span aria-hidden="true">&rarr;</span></a>
+        </section>
+    </main>
+    <script src="checkout.js"></script>
+    <script src="language.js"></script>
+</body>
+</html>

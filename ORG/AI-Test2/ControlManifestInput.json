@@ -1,0 +1,106 @@
+{
+	"$schema": "https://developer.microsoft.com/json-schemas/cf-control/property-set.schema.json",
+	"name": "MultiSelectLookup",
+	"version": "1.0.0",
+	"description": "Multi-select lookup control for Dataverse / Model-Driven apps. Renders a searchable, tag based multi-select backed by Dataverse records and persists the chosen record ids as a delimited string.",
+	"controlledBy": "PropertyEditor",
+	"controlType": "standard",
+	"codeIncluded": true,
+	"apiVersion": "1.3.5",
+	"clientComponentId": "00000000-0000-0000-0000-000000000000",
+	"componentType": "Control",
+	"source": "src",
+	"allowCustomization": true,
+	"css": "css/MultiSelectLookup.css",
+	"supportedHosts": [
+		"Form",
+		"QuickView"
+	],
+	"properties": {
+		"defaultSelectedItems": {
+			"displayName": "Selected items",
+			"description": "The record ids that are selected when the form opens. Accepts a semicolon (or custom) delimited list of primary key values. This is the bound field of the control.",
+			"type": "string",
+			"isPrimary": true
+		},
+		"entityName": {
+			"displayName": "Entity name",
+			"description": "Logical name of the table to look up records from, for example 'account'.",
+			"type": "string"
+		},
+		"displayProperty": {
+			"displayName": "Display attribute",
+			"description": "Logical name of the attribute shown as the record label, for example 'name'.",
+			"type": "string"
+		},
+		"primaryIdAttribute": {
+			"displayName": "Primary id attribute",
+			"description": "Logical name of the primary id attribute used to match and persist selections. When empty the form context value (PrimaryIdAttribute) is used.",
+			"type": "string"
+		},
+		"entitySetName": {
+			"displayName": "Entity set name",
+			"description": "Optional override for the OData entity set used in requests. Leave empty to derive it from the form context.",
+			"type": "string"
+		},
+		"placeholderText": {
+			"displayName": "Placeholder text",
+			"description": "Text shown in the control when nothing is selected.",
+			"type": "string"
+		},
+		"labelText": {
+			"displayName": "Label text",
+			"description": "Label rendered above the control. When empty the label is hidden and only the placeholder is used.",
+			"type": "string"
+		},
+		"selectedItemsDelimiter": {
+			"displayName": "Selected items delimiter",
+			"description": "Character used to separate the selected record ids in the bound field.",
+			"type": "string"
+		},
+		"maxOptions": {
+			"displayName": "Maximum options",
+			"description": "Maximum number of records fetched in a single request.",
+			"type": "number"
+		},
+		"allowSearch": {
+			"displayName": "Allow search",
+			"description": "Shows a search box above the option list.",
+			"type": "boolean"
+		},
+		"showSelectAll": {
+			"displayName": "Show select all",
+			"description": "Shows the 'Select all' and 'Clear all' shortcuts in the callout footer.",
+			"type": "boolean"
+		},
+		"isDisabled": {
+			"displayName": "Disabled",
+			"description": "Prevents the user from opening the control and changing the selection.",
+			"type": "boolean"
+		},
+		"isRequired": {
+			"displayName": "Required",
+			"description": "Marks the control as required and blocks save while the selection is empty.",
+			"type": "boolean"
+		},
+		"errorMessage": {
+			"displayName": "Error message",
+			"description": "Overrides the default required field error message.",
+			"type": "string"
+		}
+	},
+	"outputs": [
+		{
+			"name": "value",
+			"displayName": "Value",
+			"description": "The delimited list of selected record ids, written back to the bound field.",
+			"type": "string"
+		},
+		{
+			"name": "selectedRecords",
+			"displayName": "Selected records",
+			"description": "Comma separated list of selected record ids, for use with rules and formulas.",
+			"type": "string"
+		}
+	]
+}

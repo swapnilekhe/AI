@@ -1,0 +1,44 @@
+const translations = {
+    en: {
+        catalogEyebrow: "A considered collection for the everyday table",
+        catalogSubtitle: "Explore beautiful tools, textures, and small rituals for cooking, serving, and sharing.",
+        everything: "Everything", serve: "Serve", cook: "Cook", ritual: "Ritual",
+        footer: "&copy; 2026 Table &amp; Tide. Made for slow meals.", shopObjects: "Shop objects <span aria-hidden=\"true\">&larr;</span>",
+        hungry: "A little hungry?", menuIntro: "Browse the menu, choose your mood, and let dinner take it from there.",
+        all: "All", savory: "Savory", fresh: "Fresh", sweet: "Sweet", yourCart: "🛒 Your Cart", cart: "Cart", total: "Total:", checkout: "Checkout",
+        backToMenu: "&larr; Back to menu", almostYours: "Almost yours", contact: "Contact", email: "Email address", delivery: "Delivery", fullName: "Full name", streetAddress: "Street address", city: "City", postcode: "Postcode", payment: "Payment", cardNumber: "Card number", expiry: "Expiry", cvc: "CVC", placeOrder: "Place order <span aria-hidden=\"true\">&rarr;</span>", demoCheckout: "Demo checkout. No payment is processed.", yourOrder: "Your order", subtotal: "Subtotal", free: "Free", totalLabel: "Total", orderConfirmed: "Order confirmed", orderOnWay: "Your order is on its way. We have sent a confirmation to your email.", returnMenu: "Return to menu <span aria-hidden=\"true\">&rarr;</span>", addToCart: "Add to cart <span aria-hidden=\"true\">&rarr;</span>", whatGoesIn: "What goes in", simpleIngredients: "Simple ingredients.", goodToKnow: "Good to know", nutritionSnapshot: "Nutrition snapshot.", nutritionNote: "Values are estimates per serving. Recipes and portions can vary.", exploreFood: "Explore more food <span aria-hidden=\"true\">&rarr;</span>",
+        about: "About", aboutIntro: "A small kitchen with strong opinions about butter, sourdough, and eating well.",
+        aboutDescription: "We believe in the beauty of simple ingredients and thoughtful preparation. Every dish is crafted with care, using locally sourced produce and time-honored techniques passed down through generations. Our mission is to bring warmth and nourishment to your table.",
+        valuesTitle: "Our values", valuesFreshTitle: "Fresh ingredients", valuesFreshText: "We shop close to home, so every ingredient lands on your plate at its peak.", valuesCraftedTitle: "Crafted with care", valuesCraftedText: "Our chefs bring decades of experience and a quiet dedication to every plate.", valuesSustainableTitle: "Sustainable practices", valuesSustainableText: "Short supply chains, less waste, and growers we actually know.", valuesWarmthTitle: "Warm hospitality", valuesWarmthText: "Good food deserves good company. We are here to make the table feel like yours.",
+        teamTitle: "Meet the team", headChef: "Head chef", restaurantManager: "Restaurant manager", pastryChef: "Pastry chef", teamSarahText: "Fifteen years in kitchens taught Sarah that precision and generosity belong together.", teamMichaelText: "Michael keeps the room calm, the service warm, and every detail in place.", teamElenaText: "Elena finishes the meal with desserts that pair classic technique with a little play.",
+        statYearsLabel: "Years of excellence", statGuestsLabel: "Happy guests", statDishesLabel: "Dishes on the menu", statRatingLabel: "Guest rating",
+        contactTitle: "Get in touch", contactSubtitle: "We would love to hear from you. Questions about the menu, delivery, or anything else, send us a note and we will reply as soon as we can.", contactEmail: "Email", contactAddress: "Address", contactPhone: "Phone", contactHours: "Hours", contactEmailValue: "hello@tableandtide.com", contactAddressValue: "123 Table Street, Dining City, DC 12345", contactPhoneValue: "+1 (555) 123-4567", contactHoursValue: "Mon-Fri: 9AM - 8PM &middot; Sat-Sun: 10AM - 6PM", subject: "Subject", message: "Message", sendButton: "Send message", messageSent: "Thank you. Your message is on its way to the kitchen.", contactCta: "Get in touch <span aria-hidden=\"true\">&rarr;</span>"
+    },
+    mr: {
+        catalogEyebrow: "दररोजच्या टेबलसाठी निवडक संग्रह",
+        catalogSubtitle: "स्वयंपाक, वाढणे आणि एकत्र जेवण्यासाठी सुंदर साधने आणि छोट्या सवयी शोधा.",
+        everything: "सर्व", serve: "वाढा", cook: "स्वयंपाक", ritual: "सवय",
+        footer: "&copy; 2026 Table &amp; Tide. निवांत जेवणासाठी.", shopObjects: "वस्तूंचे दुकान <span aria-hidden=\"true\">&larr;</span>",
+        hungry: "थोडी भूक लागली आहे?", menuIntro: "मेनू पाहा, तुमचा मूड निवडा आणि जेवणाला सुरुवात करू द्या.",
+        all: "सर्व", savory: "तिखट-खारट", fresh: "ताजे", sweet: "गोड", yourCart: "🛒 तुमची कार्ट", cart: "कार्ट", total: "एकूण:", checkout: "चेकआउट",
+        backToMenu: "मेनूकडे परत <span aria-hidden=\"true\">&larr;</span>", almostYours: "आता तुमचेच", contact: "संपर्क", email: "ईमेल पत्ता", delivery: "डिलिव्हरी", fullName: "पूर्ण नाव", streetAddress: "रस्त्याचा पत्ता", city: "शहर", postcode: "पिनकोड", payment: "पेमेंट", cardNumber: "कार्ड क्रमांक", expiry: "मुदत", cvc: "CVC", placeOrder: "ऑर्डर द्या <span aria-hidden=\"true\">&rarr;</span>", demoCheckout: "डेमो चेकआउट. कोणतेही पेमेंट केले जाणार नाही.", yourOrder: "तुमची ऑर्डर", subtotal: "उपएकूण", free: "मोफत", totalLabel: "एकूण", orderConfirmed: "ऑर्डर निश्चित झाली", orderOnWay: "तुमची ऑर्डर येत आहे. पुष्टीकरण ईमेलवर पाठवले आहे.", returnMenu: "मेनूकडे परत <span aria-hidden=\"true\">&rarr;</span>", addToCart: "कार्टमध्ये जोडा <span aria-hidden=\"true\">&rarr;</span>", whatGoesIn: "यामध्ये काय आहे", simpleIngredients: "साधे घटक.", goodToKnow: "उपयुक्त माहिती", nutritionSnapshot: "पोषण माहिती.", nutritionNote: "मूल्ये प्रत्येक सर्व्हिंगसाठी अंदाजे आहेत. कृती आणि प्रमाण बदलू शकते.", exploreFood: "अधिक पदार्थ पाहा <span aria-hidden=\"true\">&rarr;</span>",
+        about: "आमच्याबद्दल", aboutIntro: "लोणी, सोरडो आणि चांगले जेवण यांबद्दल ठाम मत असलेले छोटे स्वयंपाकघर.",
+        aboutDescription: "आम्ही साध्या घटकांचे सौंदर्य आणि विचारपूर्वक तयारी यांवर विश्वास ठेवतो. प्रत्येक पदार्थ स्थानिक उत्पादन आणि पिढ्यानपिढ्या चालत आलेल्या पद्धती वापरून काळजीपूर्वक तयार केला जातो. तुमच्या टेबलावर उबदारपणा आणि पोषण आणणे हे आमचे ध्येय आहे.",
+        valuesTitle: "आमची मूल्ये", valuesFreshTitle: "ताजे घटक", valuesFreshText: "आम्ही जवळच्या उत्पादकांकडून खरेदी करतो, म्हणून प्रत्येक घटक उत्तम स्थितीत तुमच्या ताटात येतो.", valuesCraftedTitle: "काळजीपूर्वक तयार", valuesCraftedText: "आमचे आचारी प्रत्येक ताटात वर्षानुवर्षांचा अनुभव आणि शांत समर्पण आणतात.", valuesSustainableTitle: "शाश्वत पद्धती", valuesSustainableText: "कमी अंतराची खरेदी, कमी वाया घालवणे आणि आम्हाला माहीत असलेले शेतकरी.", valuesWarmthTitle: "उबदार आदरातिथ्य", valuesWarmthText: "चांगल्या जेवणासोबत चांगली माणसे लागतात. टेबल तुमच्यासारखा वाटावा यासाठी आम्ही आहोत.",
+        teamTitle: "आमची टीम", headChef: "मुख्य आचारी", restaurantManager: "रेस्टॉरंट व्यवस्थापक", pastryChef: "मिठाई आचारी", teamSarahText: "स्वयंपाकघरातील पंधरा वर्षांनी साराहला शिकवले की अचूकता आणि उदारता एकत्र असावीत.", teamMichaelText: "मायकेल वातावरण शांत, सेवा उबदार आणि प्रत्येक तपशील योग्य ठिकाणी ठेवतो.", teamElenaText: "एलेना पारंपरिक पद्धत आणि थोडा खेळ मिसळून गोड पदार्थांनी जेवण पूर्ण करते.",
+        statYearsLabel: "वर्षांची उत्कृष्टता", statGuestsLabel: "आनंदी पाहुणे", statDishesLabel: "मेनूवरील पदार्थ", statRatingLabel: "पाहुण्यांचे रेटिंग",
+        contactTitle: "संपर्क साधा", contactSubtitle: "तुमच्याकडून ऐकायला आम्हाला आवडेल. मेनू, डिलिव्हरी किंवा इतर कशाबद्दलही प्रश्न असल्यास संदेश पाठवा, आम्ही शक्य तितक्या लवकर उत्तर देऊ.", contactEmail: "ईमेल", contactAddress: "पत्ता", contactPhone: "फोन", contactHours: "वेळ", contactEmailValue: "hello@tableandtide.com", contactAddressValue: "१२३ टेबल स्ट्रीट, डायनिंग सिटी, DC १२३४५", contactPhoneValue: "+१ (५५५) १२३-४५६७", contactHoursValue: "सोम-शुक्र: सकाळी ९ ते रात्री ८ &middot; शनि-रवि: सकाळी १० ते सायं ६", subject: "विषय", message: "संदेश", sendButton: "संदेश पाठवा", messageSent: "धन्यवाद. तुमचा संदेश आमच्याकडे पोहोचला आहे.", contactCta: "संपर्क साधा <span aria-hidden=\"true\">&rarr;</span>"
+    }
+};
+
+function applyLanguage(language) {
+    const selected = translations[language] ? language : "en";
+    document.documentElement.lang = selected === "mr" ? "mr" : "en";
+    document.querySelectorAll("[data-i18n]").forEach((element) => { element.innerHTML = translations[selected][element.dataset.i18n]; });
+    document.querySelectorAll("[data-language]").forEach((select) => { select.value = selected; });
+    localStorage.setItem("tableTideLanguage", selected);
+    window.dispatchEvent(new CustomEvent("languagechange", { detail: selected }));
+}
+
+document.querySelectorAll("[data-language]").forEach((select) => select.addEventListener("change", (event) => applyLanguage(event.target.value)));
+applyLanguage(localStorage.getItem("tableTideLanguage") || "en");

@@ -1,0 +1,3 @@
+﻿loglen=0
+nm_exists=False
+procs=0

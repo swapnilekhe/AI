@@ -1,0 +1,10 @@
+mcs.metadata:
+  componentName: Demo-Copilot_Employee_Handbook_HR_Leave=Policies.docx
+  description: This knowledge source provides information found in Demo-Copilot_Employee_Handbook_HR_Leave=Policies.docx.
+kind: KnowledgeSourceConfiguration
+source:
+  kind: FederatedStructuredSearchSource
+  connectionProperties:
+    mode: Invoker
+
+  skillConfiguration: DemoCopilot_Employee_Handbook_HR_LeavePoliciesdocx_luWKm5gzQSCNlLODrmDjC

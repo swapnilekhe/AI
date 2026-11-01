@@ -1,0 +1,46 @@
+mcs.metadata:
+  componentName: PTODays
+kind: AdaptiveDialog
+modelDescription: This tool handle queries like no of days left. Check the Vacation days left.
+beginDialog:
+  kind: OnRecognizedIntent
+  id: main
+  intent: {}
+  actions:
+    - kind: InvokeAIBuilderModelAction
+      id: invokeAIBuilderModelAction_Y5O7hD
+      input:
+        binding:
+          UserEmail: =System.User.Email
+
+      output:
+        binding:
+          predictionOutput: Topic.DayLeft
+
+      aIModelId: 001dd16a-6173-419b-ac97-f6c2f9b58d50
+
+    - kind: SendActivity
+      id: sendActivity_fgzwqe
+      activity: you have {Topic.DayLeft.text} vacation days left
+
+    - kind: ParseValue
+      id: yoqtmG
+      variable: Topic.inDaysLeft
+      valueType: Number
+      value: =Topic.DayLeft.text
+
+    - kind: SearchAndSummarizeContent
+      id: V0G3g0
+      userInput: =Topic.DayLeft.text
+      additionalInstructions: Our emplyee currently has  {Topic.inDaysLeft} days left. Remind them to encourge to take vacations before you loose them. it is good for emoloyee well being.
+      fileSearchDataSource:
+        searchFilesMode:
+          kind: DoNotSearchFiles
+
+      knowledgeSources:
+        kind: SearchSpecificKnowledgeSources
+        knowledgeSources:
+          - se_agent1.topic.DemoCopilot_Employee_Handbook_HR_LeavePoliciesdocx_eFNcf89akCRKhkxXDoRUv
+
+inputType: {}
+outputType: {}

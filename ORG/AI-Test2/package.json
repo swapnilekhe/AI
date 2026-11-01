@@ -1,0 +1,22 @@
+{
+	"name": "multiselectlookup",
+	"version": "1.0.0",
+	"description": "Multi-select lookup PCF control for Dataverse / Model-Driven apps",
+	"author": "",
+	"license": "MIT",
+	"scripts": {
+		"build": "pcf build",
+		"watch": "pcf start",
+		"lint": "pcf lint",
+		"test": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --import ./test/stubs/register.mjs --test \"test/**/*.test.ts\"",
+		"pac:init": "pac init",
+		"pac:pack": "pac pack"
+	},
+	"dependencies": {},
+	"devDependencies": {
+		"@microsoft/pcf-core": "^1.0.0",
+		"@types/node": "^18.19.50",
+		"@types/react": "17.0.83",
+		"typescript": "4.9.5"
+	}
+}

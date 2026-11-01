@@ -1,0 +1,27 @@
+mcs.metadata:
+  componentName: agent1(HR Leave Policy Guide)
+  description: Create an HR assistant that answers employee questions related to Leave Policies, Work from hoe policy, Holiday Calendar, Maternity/Paternity Policy
+kind: GptComponentMetadata
+displayName: agent1(HR Leave Policy Guide)
+instructions:
+responseInstructions:
+gptCapabilities:
+  webBrowsing: false
+  codeInterpreter: false
+
+conversationStarters:
+  - title: Vacation
+    text: How many vacation days do we have?
+
+  - title: Paternity
+    text: How may days Paternity leave do we have?
+
+  - title: Ling Term Service
+    text: Do we have any long term Service Vacations?
+
+aISettings:
+  model:
+    kind: DeferredUpdateModels
+
+  extensionData:
+    lastUsedCustomModel: {}

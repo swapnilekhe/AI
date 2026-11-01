@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Details | Table &amp; Tide</title>
+    <link rel="stylesheet" href="product-details.css">
+</head>
+<body>
+    <main class="detail-shell">
+        <header class="detail-header">
+            <a class="brand" href="index.html">Table &amp; Tide</a>
+            <a class="back-link" href="food-gallery.html" data-i18n="backToMenu">&larr; Back to menu</a>
+            <label class="language-switcher"><span class="sr-only">Language</span><select data-language aria-label="Language"><option value="en">English</option><option value="mr">मराठी</option></select></label>
+        </header>
+        <section class="detail-hero" id="detailContent">
+            <div class="detail-gallery">
+                <div class="detail-image-wrap"><img id="detailImage" src="" alt=""></div>
+                <div class="image-thumbnails" id="imageThumbnails" aria-label="More product images"></div>
+            </div>
+            <div class="detail-copy">
+                <p class="eyebrow" id="detailCategory"></p>
+                <h1 id="detailName"></h1>
+                <p class="detail-description" id="detailDescription"></p>
+                <div class="detail-buy"><strong id="detailPrice"></strong><button id="addToCart" data-i18n="addToCart">Add to cart <span aria-hidden="true">&rarr;</span></button></div>
+                <p class="cart-feedback" id="cartFeedback" role="status"></p>
+            </div>
+        </section>
+        <section class="food-notes">
+            <article><p class="eyebrow" data-i18n="whatGoesIn">What goes in</p><h2 data-i18n="simpleIngredients">Simple ingredients.</h2><p id="detailIngredients"></p></article>
+            <article><p class="eyebrow" data-i18n="goodToKnow">Good to know</p><h2 data-i18n="nutritionSnapshot">Nutrition snapshot.</h2><div class="vitamin-grid" id="vitamins"></div><p class="nutrition-note" data-i18n="nutritionNote">Values are estimates per serving. Recipes and portions can vary.</p></article>
+        </section>
+        <section class="detail-footer"><a href="food-gallery.html" data-i18n="exploreFood">Explore more food <span aria-hidden="true">&rarr;</span></a></section>
+    </main>
+    <script src="product-details.js"></script>
+    <script src="language.js"></script>
+</body>
+</html>

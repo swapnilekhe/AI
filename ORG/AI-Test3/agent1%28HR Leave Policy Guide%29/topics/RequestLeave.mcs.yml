@@ -1,0 +1,27 @@
+mcs.metadata:
+  componentName: RequestLeave
+  description: Answers questions about requesting leave and the approval process using the employee handbook.
+kind: AdaptiveDialog
+modelDescription: Use this topic when an employee asks how to request, plan, or get approval for time off.
+beginDialog:
+  kind: OnRecognizedIntent
+  id: main
+  intent:
+    displayName: Request leave
+    includeInOnSelectIntent: false
+    triggerQueries:
+      - How do I request time off?
+      - How do I apply for leave?
+      - What is the process for taking leave?
+      - Who approves my leave request?
+      - How much notice do I need to give for leave?
+
+  actions:
+    - kind: SearchAndSummarizeContent
+      id: searchLeaveRequestPolicy
+      userInput: =System.Activity.Text
+      additionalInstructions: Answer using only the linked employee handbook. Summarize the steps and any notice or approval requirements the handbook states. If the handbook does not contain the answer, say that the information is not available in the handbook and direct the employee to HR. Do not invent policy details.
+      knowledgeSources:
+        kind: SearchSpecificKnowledgeSources
+        knowledgeSources:
+          - se_agent1.topic.DemoCopilot_Employee_Handbook_HR_LeavePoliciesdocx_eFNcf89akCRKhkxXDoRUv

@@ -1,0 +1,113 @@
+:root { --ink: #292621; --muted: #756f66; --paper: #f4efe7; --cream: #fffaf2; --coral: #d9583d; --line: #ded5c9; }
+* { box-sizing: border-box; }
+body { margin: 0; color: var(--ink); background: var(--paper); font-family: Georgia, 'Times New Roman', serif; }
+button, a { font: inherit; }
+button { cursor: pointer; }
+header { padding: 28px 7vw 74px; background: var(--ink); color: var(--cream); }
+.food-topline { display: flex; justify-content: space-between; align-items: center; margin-bottom: 84px; font-family: Arial, sans-serif; }
+.food-brand, .back-link { color: inherit; text-decoration: none; }
+.food-brand { font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.back-link { border-bottom: 1px solid rgba(255,255,255,.4); padding-bottom: 4px; }
+.eyebrow { color: var(--coral); font: 700 .76rem/1.2 Arial, sans-serif; letter-spacing: .16em; text-transform: uppercase; }
+header h1 { max-width: 700px; margin: 12px 0 18px; font-size: clamp(3.4rem, 8vw, 7.5rem); line-height: .88; font-weight: 400; letter-spacing: -.05em; }
+header h1 em { color: #ef9579; font-style: italic; }
+header p:last-child { max-width: 400px; margin: 0; color: #c7beb1; font-size: 1.15rem; line-height: 1.55; }
+.filter-nav { display: flex; flex-wrap: wrap; gap: 10px; padding: 22px 7vw; border-bottom: 1px solid var(--line); background: var(--cream); }
+.filter-btn { border: 1px solid var(--line); border-radius: 99px; padding: 9px 18px; color: var(--ink); background: transparent; }
+.filter-btn.active, .filter-btn:hover { border-color: var(--coral); color: white; background: var(--coral); }
+.gallery-container { max-width: 1360px; margin: auto; padding: 48px 7vw 100px; }
+.product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+.product-card { overflow: hidden; border: 1px solid var(--line); background: var(--cream); animation: rise .5s both; }
+.product-image-button { position: relative; display: block; width: 100%; padding: 0; border: 0; background: none; }
+.product-image { width: 100%; height: 260px; display: block; object-fit: cover; }
+.view-label { position: absolute; right: 12px; bottom: 12px; padding: 6px 9px; color: white; background: var(--ink); font: .7rem Arial, sans-serif; opacity: 0; transition: opacity .2s; }
+.product-image-button:hover .view-label, .product-image-button:focus-visible .view-label { opacity: 1; }
+.product-info { padding: 18px; }
+.product-category { color: var(--coral); font: 700 .68rem Arial, sans-serif; letter-spacing: .13em; text-transform: uppercase; }
+.product-name { margin: 8px 0 6px; font-size: 1.35rem; font-weight: 400; }
+.product-description { min-height: 48px; margin: 0 0 14px; color: var(--muted); font: .9rem/1.45 Arial, sans-serif; }
+.product-price { color: var(--coral); font-size: 1.1rem; }
+.cart-toggle { position: fixed; right: 24px; bottom: 24px; z-index: 5; display: flex; gap: 10px; align-items: center; border: 0; padding: 14px 18px; color: white; background: var(--coral); box-shadow: 0 8px 20px #29262144; }
+.cart-toggle b { min-width: 23px; border-radius: 50%; padding: 3px; background: var(--ink); font: .75rem Arial, sans-serif; }
+.cart-sidebar { position: fixed; top: 0; right: -430px; z-index: 10; display: flex; flex-direction: column; width: min(430px, 100%); height: 100vh; padding: 26px; background: var(--cream); box-shadow: -10px 0 30px #29262122; transition: right .3s ease; }
+.cart-sidebar.active { right: 0; }
+.cart-header, .cart-total { display: flex; justify-content: space-between; align-items: center; }
+.cart-header h2 { margin: 0; font-size: 1.8rem; font-weight: 400; }
+.close-cart, .modal-close { border: 0; background: transparent; font-size: 2rem; }
+.cart-items { flex: 1; overflow: auto; padding: 24px 0; }
+.cart-item { display: flex; justify-content: space-between; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.cart-item h3 { margin: 0 0 5px; font-size: 1rem; font-weight: 400; }
+.cart-item p { margin: 0; color: var(--muted); font: .8rem Arial, sans-serif; }
+.remove-item { border: 0; color: var(--coral); background: none; }
+.cart-total { padding: 18px 0; border-top: 1px solid var(--line); font-size: 1.2rem; }
+.checkout-btn { width: 100%; border: 0; padding: 15px; color: white; background: var(--ink); }
+.checkout-btn:hover { background: var(--coral); }
+.modal { position: fixed; inset: 0; z-index: 20; display: none; place-items: center; padding: 25px; background: #292621cc; }
+.modal.active { display: grid; }
+.modal-content { position: relative; display: grid; grid-template-columns: minmax(240px, 1fr) 1fr; max-width: 800px; background: var(--cream); }
+.modal-content > img { width: 100%; height: 100%; max-height: 520px; object-fit: cover; }
+.modal-info { padding: 42px; }
+.modal-info h2 { font-size: 2.2rem; font-weight: 400; }
+.modal-info p { color: var(--muted); line-height: 1.6; }
+.modal-info strong { color: var(--coral); }
+.modal-close { position: absolute; top: 8px; right: 15px; z-index: 1; }
+@keyframes rise { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 900px) { .product-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { header { padding: 24px 6vw 60px; } .food-topline { margin-bottom: 55px; } .product-grid { grid-template-columns: 1fr; } .product-image { height: 300px; } .modal-content { grid-template-columns: 1fr; max-height: 90vh; overflow: auto; } .modal-content > img { height: 240px; } .modal-info { padding: 25px; } }
+.language-switcher { margin-left: 18px; font: .78rem Arial, sans-serif; }
+.language-switcher select { border: 1px solid rgba(255,255,255,.35); padding: 7px 25px 7px 9px; color: var(--cream); background: transparent; }
+.language-switcher option { color: var(--ink); background: var(--cream); }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); }
+
+/* Shared shell and top navigation for the About and Contact pages */
+.page-shell { max-width: 1240px; margin: auto; padding: 56px 7vw 100px; }
+.page-links { display: flex; gap: 20px; align-items: center; font: .78rem Arial, sans-serif; }
+.page-links a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.4); padding-bottom: 4px; }
+.page-links a:hover { border-color: var(--coral); }
+.page-links a[aria-current] { color: var(--coral); border-color: var(--coral); }
+.page-section { padding: 64px 0; border-bottom: 1px solid var(--line); }
+.page-section h2 { margin: 0 0 30px; font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 400; letter-spacing: -.03em; }
+.page-cta { padding: 46px 0 0; }
+.link-arrow { color: var(--coral); font: 700 .78rem Arial, sans-serif; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 5px; }
+.link-arrow:hover { color: var(--ink); }
+
+/* About page */
+.about-hero { display: grid; grid-template-columns: 1.02fr .98fr; gap: 46px; align-items: center; padding-bottom: 64px; border-bottom: 1px solid var(--line); }
+.about-hero img { width: 100%; height: 420px; object-fit: cover; }
+.about-hero h2 { margin: 0; font-size: clamp(1.4rem, 2.1vw, 1.95rem); line-height: 1.45; font-weight: 400; }
+.card-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+.info-tile { padding: 26px; border: 1px solid var(--line); background: var(--cream); }
+.info-tile .icon { display: block; margin-bottom: 14px; font-size: 1.6rem; }
+.info-tile h3 { margin: 0 0 8px; font-size: 1.15rem; font-weight: 400; }
+.info-tile p { margin: 0; color: var(--muted); font: .9rem/1.55 Arial, sans-serif; }
+.team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.team-card { border: 1px solid var(--line); background: var(--cream); }
+.team-card img { width: 100%; height: 250px; object-fit: cover; }
+.team-card div { padding: 20px; }
+.team-card h3 { margin: 0 0 6px; font-size: 1.2rem; font-weight: 400; }
+.team-role { margin: 0 0 12px; color: var(--coral); font: 700 .68rem Arial, sans-serif; letter-spacing: .13em; text-transform: uppercase; }
+.team-card p:last-child { margin: 0; color: var(--muted); font: .9rem/1.55 Arial, sans-serif; }
+.stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; margin-top: 64px; padding: 44px 30px; text-align: center; background: var(--ink); color: var(--cream); }
+.stats-row strong { display: block; margin-bottom: 8px; color: var(--coral); font-size: 2.4rem; font-weight: 400; }
+.stats-row span { font: .72rem Arial, sans-serif; letter-spacing: .13em; text-transform: uppercase; }
+
+/* Contact page */
+.contact-layout { display: grid; grid-template-columns: .85fr 1.15fr; gap: 46px; }
+.contact-cards { display: grid; gap: 18px; align-content: start; }
+.contact-card { display: flex; gap: 16px; padding: 22px; border: 1px solid var(--line); background: var(--cream); }
+.contact-card .icon { font-size: 1.5rem; line-height: 1; }
+.contact-card h3 { margin: 0 0 6px; color: var(--coral); font: 700 .68rem Arial, sans-serif; letter-spacing: .13em; text-transform: uppercase; }
+.contact-card p { margin: 0; color: var(--muted); font: .95rem/1.55 Arial, sans-serif; }
+.contact-form-panel form { display: grid; gap: 18px; }
+.contact-form-panel label { display: block; margin-bottom: 7px; font: 700 .68rem Arial, sans-serif; letter-spacing: .13em; text-transform: uppercase; }
+.contact-form-panel input, .contact-form-panel textarea { width: 100%; border: 1px solid var(--line); padding: 13px 15px; color: var(--ink); background: var(--cream); font: .98rem/1.5 Georgia, serif; }
+.contact-form-panel input:focus, .contact-form-panel textarea:focus { outline: 2px solid var(--coral); outline-offset: 1px; }
+.contact-form-panel textarea { resize: vertical; }
+.send-button { border: 0; padding: 16px 18px; color: white; background: var(--ink); }
+.send-button:hover { background: var(--coral); }
+.form-status { margin: 0; padding: 14px 18px; border-left: 3px solid var(--coral); background: var(--cream); font: .95rem/1.5 Arial, sans-serif; }
+.form-status[hidden] { display: none; }
+.contact-layout .page-cta { grid-column: 1 / -1; }
+
+@media (max-width: 900px) { .page-shell { padding: 44px 7vw 80px; } .about-hero, .contact-layout { grid-template-columns: 1fr; } .about-hero img { height: 320px; } .card-grid, .stats-row { grid-template-columns: repeat(2, 1fr); } .team-grid { grid-template-columns: 1fr; } }
+@media (max-width: 560px) { .food-topline { flex-wrap: wrap; gap: 12px; } .card-grid, .stats-row { grid-template-columns: 1fr; } }

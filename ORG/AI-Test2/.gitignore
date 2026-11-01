@@ -1,0 +1,11 @@
+node_modules/
+build/
+out/
+temp/
+Debug/
+Release/
+Bin/
+Obj/
+*.log
+_env.txt
+.DS_Store

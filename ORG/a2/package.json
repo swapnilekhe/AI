@@ -1,0 +1,20 @@
+{
+  "name": "pcf-text-formatter-sample",
+  "version": "1.0.0",
+  "description": "Sample PCF control for formatting a text field in a model-driven app.",
+  "private": true,
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "@fluentui/react": "^8.116.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0"
+  }
+}

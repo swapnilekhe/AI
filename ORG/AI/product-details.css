@@ -1,0 +1,40 @@
+:root { --ink: #292621; --muted: #756f66; --paper: #f4efe7; --cream: #fffaf2; --coral: #d9583d; --line: #ded5c9; }
+* { box-sizing: border-box; }
+body { margin: 0; color: var(--ink); background: var(--paper); font-family: Arial, sans-serif; }
+.detail-shell { max-width: 1240px; margin: auto; padding: 28px 6vw 70px; }
+.detail-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 70px; }
+.brand, .back-link, .detail-footer a { color: var(--ink); text-decoration: none; }
+.brand { font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.back-link { color: var(--muted); border-bottom: 1px solid var(--line); padding-bottom: 4px; }
+.detail-hero { display: grid; grid-template-columns: 1fr 1fr; gap: 7vw; align-items: center; }
+.detail-gallery { min-width: 0; }
+.detail-image-wrap { background: var(--line); }
+.detail-image-wrap img { width: 100%; aspect-ratio: 1 / 1.08; display: block; object-fit: cover; }
+.image-thumbnails { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 10px; }
+.image-thumbnail { padding: 0; border: 2px solid transparent; background: var(--line); cursor: pointer; }
+.image-thumbnail.active, .image-thumbnail:focus-visible { border-color: var(--coral); }
+.image-thumbnail img { width: 100%; aspect-ratio: 1 / .72; display: block; object-fit: cover; opacity: .72; transition: opacity .2s; }
+.image-thumbnail:hover img, .image-thumbnail.active img { opacity: 1; }
+.eyebrow { color: var(--coral); font: 700 .75rem/1.2 Arial, sans-serif; letter-spacing: .16em; text-transform: uppercase; }
+.detail-copy h1 { max-width: 520px; margin: 14px 0 22px; font: 400 clamp(3.3rem, 7vw, 6.5rem)/.88 Georgia, serif; letter-spacing: -.05em; }
+.detail-description { max-width: 470px; color: var(--muted); font: 1.1rem/1.65 Georgia, serif; }
+.detail-buy { display: flex; align-items: center; gap: 24px; margin-top: 34px; }
+.detail-buy strong { color: var(--coral); font: 1.5rem Georgia, serif; }
+.detail-buy button { border: 0; padding: 15px 20px; color: white; background: var(--ink); font-weight: 700; cursor: pointer; }
+.detail-buy button:hover { background: var(--coral); }
+.cart-feedback { min-height: 20px; color: var(--coral); font-size: .84rem; }
+.food-notes { display: grid; grid-template-columns: 1fr 1fr; gap: 7vw; margin-top: 100px; padding-top: 45px; border-top: 1px solid var(--line); }
+.food-notes h2 { margin: 10px 0 20px; font: 400 2rem Georgia, serif; }
+.food-notes article > p:last-child { max-width: 470px; color: var(--muted); line-height: 1.7; }
+.vitamin-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.vitamin { padding: 14px 12px; border: 1px solid var(--line); background: var(--cream); }
+.vitamin strong { display: block; margin-bottom: 6px; color: var(--coral); font: 700 1.2rem Georgia, serif; }
+.vitamin span { color: var(--muted); font-size: .78rem; }
+.nutrition-note { font-size: .78rem; }
+.detail-footer { margin-top: 75px; padding-top: 22px; border-top: 1px solid var(--line); }
+.detail-footer a { color: var(--coral); font-weight: 700; }
+@media (max-width: 760px) { .detail-header { margin-bottom: 45px; } .detail-hero, .food-notes { grid-template-columns: 1fr; gap: 40px; } .food-notes { margin-top: 65px; } }
+@media (max-width: 430px) { .detail-shell { padding-inline: 24px; } .detail-header { gap: 18px; align-items: flex-start; } .detail-buy { align-items: flex-start; flex-direction: column; gap: 14px; } .vitamin-grid { grid-template-columns: 1fr; } }
+.language-switcher { margin-left: 18px; font-size: .78rem; }
+.language-switcher select { border: 1px solid var(--line); padding: 7px 25px 7px 9px; color: var(--ink); background: var(--cream); }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); }

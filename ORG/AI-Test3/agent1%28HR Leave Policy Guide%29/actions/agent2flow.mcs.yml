@@ -1,0 +1,34 @@
+mcs.metadata:
+  componentName: agent 2 flow
+kind: TaskDialog
+response:
+  activity:
+  mode: Generated
+
+inputs:
+  - kind: ManualTaskInput
+    propertyName: text_3
+    value: =System.User.Email
+
+  - kind: AutomaticTaskInput
+    propertyName: text
+
+  - kind: AutomaticTaskInput
+    propertyName: text_2
+
+  - kind: AutomaticTaskInput
+    propertyName: text_1
+
+modelDescription: This tool can be used to log the leave request
+outputs:
+  - propertyName: id
+
+action:
+  kind: InvokeFlowTaskAction
+  flowId: 60cdd1c7-cc82-f111-ab0e-000d3a5a52e2
+  connectionProperties:
+    $kind: ConnectionProperties
+    diagnostics:
+    mode: Invoker
+
+outputMode: All

@@ -1,0 +1,37 @@
+﻿{
+  "name": "Prompt Vacation Days ",
+  "instruction": "Search the database at   and find how many days the user with  {{UserEmail}} has left. Only return the number.",
+  "model": "gpt-41",
+  "modelParameters": {
+    "gptParameters": {
+      "temperature": 0
+    }
+  },
+  "inputs": [
+    {
+      "id": "UserEmail",
+      "text": "UserEmail",
+      "type": "text",
+      "quickTestValue": "sekhe@hsdyn.com"
+    }
+  ],
+  "output": {
+    "formats": [
+      "text"
+    ]
+  },
+  "data": [
+    {
+      "id": "se_employeevacationdays",
+      "displayName": "EmployeeVacationDays",
+      "type": "dataverseTable",
+      "filters": []
+    }
+  ],
+  "settings": {
+    "recordRetrievalLimit": 30,
+    "shouldPreserveRecordLinks": null,
+    "runtime": null
+  },
+  "version": "GptDynamicPrompt-2"
+}

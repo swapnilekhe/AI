@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "none",
+    "moduleResolution": "node",
+    "jsx": "react",
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "outFile": "src/index.js",
+    "rootDir": "src",
+    "lib": ["dom", "es5", "es2015.collection"]
+  },
+  "include": ["src/**/*", "typings/**/*"]
+}

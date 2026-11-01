@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Table &amp; Tide</title>
+    <link rel="stylesheet" href="food-gallery.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="food-topline">
+                <a class="food-brand" href="index.html">Table &amp; Tide</a>
+                <nav class="page-links">
+                    <a class="back-link" href="food-gallery.html" data-i18n="backToMenu">&larr; Back to menu</a>
+                    <a href="about-us.html" data-i18n="about">About</a>
+                    <a href="contact-us.html" data-i18n="contact" aria-current="page">Contact</a>
+                </nav>
+                <label class="language-switcher"><span class="sr-only">Language</span><select data-language aria-label="Language"><option value="en">English</option><option value="mr">मराठी</option></select></label>
+            </div>
+            <p class="eyebrow" data-i18n="contactTitle">Get in touch</p>
+            <h1>Say hello,<br><em>we are listening.</em></h1>
+            <p data-i18n="contactSubtitle">We would love to hear from you. Questions about the menu, delivery, or anything else, send us a note and we will reply as soon as we can.</p>
+        </div>
+    </header>
+
+    <main class="page-shell contact-layout">
+        <section class="contact-cards">
+            <article class="contact-card">
+                <span class="icon" aria-hidden="true">✉️</span>
+                <div>
+                    <h3 data-i18n="contactEmail">Email</h3>
+                    <p data-i18n="contactEmailValue">hello@tableandtide.com</p>
+                </div>
+            </article>
+            <article class="contact-card">
+                <span class="icon" aria-hidden="true">📍</span>
+                <div>
+                    <h3 data-i18n="contactAddress">Address</h3>
+                    <p data-i18n="contactAddressValue">123 Table Street, Dining City, DC 12345</p>
+                </div>
+            </article>
+            <article class="contact-card">
+                <span class="icon" aria-hidden="true">☎️</span>
+                <div>
+                    <h3 data-i18n="contactPhone">Phone</h3>
+                    <p data-i18n="contactPhoneValue">+1 (555) 123-4567</p>
+                </div>
+            </article>
+            <article class="contact-card">
+                <span class="icon" aria-hidden="true">🕒</span>
+                <div>
+                    <h3 data-i18n="contactHours">Hours</h3>
+                    <p data-i18n="contactHoursValue">Mon-Fri: 9AM - 8PM &middot; Sat-Sun: 10AM - 6PM</p>
+                </div>
+            </article>
+        </section>
+
+        <section class="contact-form-panel">
+            <form id="contactForm">
+                <div>
+                    <label for="contactName" data-i18n="fullName">Full name</label>
+                    <input id="contactName" name="name" autocomplete="name" required>
+                </div>
+                <div>
+                    <label for="contactEmail" data-i18n="email">Email address</label>
+                    <input id="contactEmail" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+                </div>
+                <div>
+                    <label for="contactSubject" data-i18n="subject">Subject</label>
+                    <input id="contactSubject" name="subject" required>
+                </div>
+                <div>
+                    <label for="contactMessage" data-i18n="message">Message</label>
+                    <textarea id="contactMessage" name="message" rows="6" required></textarea>
+                </div>
+                <button class="send-button" type="submit" data-i18n="sendButton">Send message</button>
+                <p class="form-status" id="contactStatus" data-i18n="messageSent" hidden>Thank you. Your message is on its way to the kitchen.</p>
+            </form>
+        </section>
+
+        <section class="page-cta">
+            <a class="link-arrow" href="food-gallery.html" data-i18n="exploreFood">Explore more food <span aria-hidden="true">&rarr;</span></a>
+        </section>
+    </main>
+
+    <script src="contact.js"></script>
+    <script src="language.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<manifest version="1.0.0">
+  <control namespace="Contoso.TextFormatter" constructor="TextFormatterControl">
+    <display-name>Contact Table Grid</display-name>
+    <description>Displays contacts from Dataverse with columns for first name, last name, email and ID, including filtering, sorting and pagination.</description>
+    <resources>
+      <script path="index.js" order="1" />
+    </resources>
+    <properties>
+      <property name="sampleProperty" display-name="Bound text value" type="SingleLine.Text" usage="bound" required="false" />
+    </properties>
+    <supported-formats>
+      <format type="text" />
+    </supported-formats>
+  </control>
+</manifest>

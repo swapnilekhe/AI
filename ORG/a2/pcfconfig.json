@@ -1,0 +1,12 @@
+{
+  "solution": {
+    "name": "TextFormatterSample",
+    "publisher": "Contoso",
+    "version": "1.0.0.0"
+  },
+  "paths": {
+    "manifestSource": "src/ControlManifest.Input.xml",
+    "code": "src/index.ts",
+    "output": "out"
+  }
+}
